@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Blazorise.FluentValidation\Blazorise.FluentValidation.csproj" />
+    <ProjectReference Include="..\..\..\src\Blazorise.FluentValidation\Blazorise.FluentValidation.csproj" />
     <ProjectReference Include="..\Shared\BlazoriseFluentValidation.WASM.Sample.Shared.csproj" />
   </ItemGroup>
 

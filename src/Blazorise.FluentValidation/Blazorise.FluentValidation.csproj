@@ -14,7 +14,7 @@
     <IsPackable>true</IsPackable>
     <LangVersion>8.0</LangVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>Blazorise.FluentValidation</PackageId>
 
   </PropertyGroup>
