@@ -80,14 +80,19 @@ class Build : NukeBuild
                 .EnableNoBuild());
         });
 
+    
+
     Target Publish => _ => _
       .DependsOn(Pack)
+      .Requires(()=> NuGetApiKey)      
       .Executes(() =>
-      {
+      {          
           (string feedUrl, string symbolsFeedUrl, string apiKey) = GetPublishTargetSettings();
+          var packageFile = GlobFiles(ArtifactsDirectory, "*.nupkg")
+                            .First(f => !f.EndsWith("symbols.nupkg"));
 
           DotNetNuGetPush(s => s
-              .SetTargetPath($"{ArtifactsDirectory}/*.nupkg")
+              .SetTargetPath(packageFile)                            
               .SetSource(feedUrl)
               .SetSymbolSource(symbolsFeedUrl)
               .SetApiKey(apiKey)
@@ -97,7 +102,7 @@ class Build : NukeBuild
     (string feedUrl, string symbolsFeedUrl, string apiKey) GetPublishTargetSettings()
         => GitRepository.Branch switch
         {
-            "master" => (
+            "main" => (
                 "https://api.nuget.org/v3/index.json",
                 "https://api.nuget.org/v3/index.json",
                 NuGetApiKey),
