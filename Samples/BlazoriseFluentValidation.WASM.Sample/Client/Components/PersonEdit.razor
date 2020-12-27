@@ -1,0 +1,57 @@
+﻿<h3>PersonEdit</h3>
+<Card>
+    <CardHeader>
+        <CardTitle>Make Editor</CardTitle>
+    </CardHeader>
+    <CardBody>
+        <Validations @ref="validations" Mode="ValidationMode.Auto" Model="@Person">
+
+            <Validation>
+                <Field>
+                    <FieldLabel>first name</FieldLabel>
+                    <TextEdit Placeholder="Enter name ..." @bind-Text="Person.FirstName">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation>
+                <Field>
+                    <FieldLabel>last name</FieldLabel>
+                    <TextEdit Placeholder="Enter name ..." @bind-Text="Person.LastName">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation>
+                <Field>
+                    <FieldLabel>Age</FieldLabel>
+                    <NumericEdit @bind-Value="@Person.Age" >
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </NumericEdit>
+                </Field>
+            </Validation>
+
+        </Validations>
+
+        <Button Color="Color.Primary" Clicked="Save">Save</Button>
+    </CardBody>
+</Card>
+
+
+
+@code {
+    PersonViewModel Person = new PersonViewModel();
+    Validations validations;
+    protected void Save()
+    {
+        if (!validations.ValidateAll())
+            return;
+        //cll a service ....
+    }
+}

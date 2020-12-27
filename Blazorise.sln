@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazorise.FluentValidation", "Blazorise.FluentValidation\Blazorise.FluentValidation.csproj", "{BABAEAF8-3B87-4E75-A0A2-807062DBBECB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{BBA0CBC6-9EDB-437D-8E51-E6A53F8B49B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazoriseFluentValidation.WASM.Sample.Server", "Samples\BlazoriseFluentValidation.WASM.Sample\Server\BlazoriseFluentValidation.WASM.Sample.Server.csproj", "{F21CA06E-EBA1-4B13-BFB4-2E45F6E131B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazoriseFluentValidation.WASM.Sample.Client", "Samples\BlazoriseFluentValidation.WASM.Sample\Client\BlazoriseFluentValidation.WASM.Sample.Client.csproj", "{6B48887C-9074-445B-987C-2A6A19DA138E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazoriseFluentValidation.WASM.Sample.Shared", "Samples\BlazoriseFluentValidation.WASM.Sample\Shared\BlazoriseFluentValidation.WASM.Sample.Shared.csproj", "{74CCA236-4DEF-4E68-907A-0C422B77A29B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BABAEAF8-3B87-4E75-A0A2-807062DBBECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABAEAF8-3B87-4E75-A0A2-807062DBBECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABAEAF8-3B87-4E75-A0A2-807062DBBECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABAEAF8-3B87-4E75-A0A2-807062DBBECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21CA06E-EBA1-4B13-BFB4-2E45F6E131B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21CA06E-EBA1-4B13-BFB4-2E45F6E131B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21CA06E-EBA1-4B13-BFB4-2E45F6E131B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21CA06E-EBA1-4B13-BFB4-2E45F6E131B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B48887C-9074-445B-987C-2A6A19DA138E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B48887C-9074-445B-987C-2A6A19DA138E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B48887C-9074-445B-987C-2A6A19DA138E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B48887C-9074-445B-987C-2A6A19DA138E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74CCA236-4DEF-4E68-907A-0C422B77A29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74CCA236-4DEF-4E68-907A-0C422B77A29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74CCA236-4DEF-4E68-907A-0C422B77A29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74CCA236-4DEF-4E68-907A-0C422B77A29B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F21CA06E-EBA1-4B13-BFB4-2E45F6E131B6} = {BBA0CBC6-9EDB-437D-8E51-E6A53F8B49B1}
+		{6B48887C-9074-445B-987C-2A6A19DA138E} = {BBA0CBC6-9EDB-437D-8E51-E6A53F8B49B1}
+		{74CCA236-4DEF-4E68-907A-0C422B77A29B} = {BBA0CBC6-9EDB-437D-8E51-E6A53F8B49B1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22A0780E-A9C3-4CD6-AF56-CDCFB82EAEAD}
+	EndGlobalSection
+EndGlobal
