@@ -1,4 +1,5 @@
 # BlazoriseFluentValidation
+> **Note:** this is compatible with Blazorise 0.9.2.x (there are breacking changes in 0.9.3 concerning the validation topic - i will provide some help as soon as i can)
 
 Is an implementation of the [Balsorise](https://github.com/stsrki/Blazorise) IEditContextValidator to support [FluentValidation](https://github.com/FluentValidation/FluentValidation).
 
