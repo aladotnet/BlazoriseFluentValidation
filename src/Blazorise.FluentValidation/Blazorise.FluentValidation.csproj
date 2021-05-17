@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>0.9.2.1</Version>
+    <Version>0.9.3.6</Version>
     <PackageVersion>0.9.2.1</PackageVersion>
     <Description>BlazoriseFluentValidation is an implementation of the Balsorise IEditContextValidator to support FluentValidation</Description>
     <Authors>Ahmed Layachi</Authors>
