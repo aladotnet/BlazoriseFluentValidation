@@ -19,12 +19,13 @@ namespace BlazoriseFluentValidation.WASM.Sample.Client
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddBlazoriseWithFluentValidation(options =>
+            builder.Services.AddBlazorise(options =>
             {
                 options.ChangeTextOnKeyPress = true;
             })
             .AddBootstrapProviders()
-            .AddFontAwesomeIcons();
+            .AddFontAwesomeIcons()
+            .AddFluentValidationHandler();
 
             builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 

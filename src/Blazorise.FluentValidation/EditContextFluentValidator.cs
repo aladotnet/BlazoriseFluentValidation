@@ -8,6 +8,8 @@ using System.Linq;
 
 namespace Blazorise.FluentValidation
 {
+
+    [Obsolete("this is not compatible with the current Blazorise version, use FluentValidationHandler instead")]
     public class EditContextFluentValidator : IEditContextValidator
     {
         private readonly IServiceProvider _serviceProvider;

@@ -4,9 +4,9 @@
         <CardTitle>Make Editor</CardTitle>
     </CardHeader>
     <CardBody>
-        <Validations @ref="validations" Mode="ValidationMode.Auto" Model="@Person">
+        <Validations @ref="validations" Mode="ValidationMode.Auto"  Model="@Person">
 
-            <Validation>
+            <Validation HandlerType="HandlerTypes.FluentValidation">
                 <Field>
                     <FieldLabel>first name</FieldLabel>
                     <TextEdit Placeholder="Enter name ..." @bind-Text="Person.FirstName">

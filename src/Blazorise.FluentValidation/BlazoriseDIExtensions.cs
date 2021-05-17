@@ -1,12 +1,27 @@
 ﻿using Blazorise.FluentValidation;
-using Blazorise.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Blazorise
 {
+    public static class HandlerTypes
+    {
+        public static Type FluentValidation => typeof(FluentValidationHandler);
+    }
     public static class BlazoriseDIExtensions
     {
+        /// <summary>
+        /// Adds an implementation of the FluentValidationHandler implementation of the IValidationHandler interface
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configureOptions"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddFluentValidationHandler(this IServiceCollection services)
+        {
+            services.AddScoped<FluentValidationHandler>();
+            return services;
+        }
+
         /// <summary>
         /// Adds Balsorise services calling AddBlazorise and replaces the default Dataanotation based validation
         /// with the FluentValidation
@@ -14,6 +29,7 @@ namespace Blazorise
         /// <param name="services"></param>
         /// <param name="configureOptions"></param>
         /// <returns></returns>
+        [Obsolete("this extension is not compatible with the current Blazorise version")]
         public static IServiceCollection AddBlazoriseWithFluentValidation(this IServiceCollection services, Action<BlazoriseOptions> configureOptions = null)
         {
             services.AddBlazorise(configureOptions);
