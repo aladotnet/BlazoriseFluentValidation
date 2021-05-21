@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
@@ -59,7 +60,7 @@ namespace Blazorise.FluentValidation
         {
             var validatorType = typeof(IValidator<>);
             var formValidatorType = validatorType.MakeGenericType(modelType);
-            return _serviceProvider.GetService(formValidatorType) as IValidator;
+            return _serviceProvider.GetRequiredService(formValidatorType) as IValidator;
         }
     }
 }
