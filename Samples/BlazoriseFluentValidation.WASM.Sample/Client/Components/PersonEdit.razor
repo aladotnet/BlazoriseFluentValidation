@@ -16,7 +16,7 @@
                     </TextEdit>
                 </Field>
             </Validation>
-            <Validation>
+            <Validation  HandlerType="HandlerTypes.FluentValidation">
                 <Field>
                     <FieldLabel>last name</FieldLabel>
                     <TextEdit Placeholder="Enter name ..." @bind-Text="Person.LastName">
@@ -26,7 +26,7 @@
                     </TextEdit>
                 </Field>
             </Validation>
-            <Validation>
+            <Validation  HandlerType="HandlerTypes.FluentValidation">
                 <Field>
                     <FieldLabel>Age</FieldLabel>
                     <NumericEdit @bind-Value="@Person.Age" >

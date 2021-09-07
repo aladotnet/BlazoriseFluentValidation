@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>0.9.3.7</Version>
-    <PackageVersion>0.9.3.7</PackageVersion>
+    <Version>0.9.4.3</Version>
+    <PackageVersion>0.9.4.3</PackageVersion>
     <Description>BlazoriseFluentValidation is an implementation of the Balsorise IValidationHandler to support FluentValidation</Description>
     <Authors>Ahmed Layachi</Authors>
     <Company></Company>
@@ -16,13 +16,13 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>Blazorise.FluentValidation</PackageId>
-    <PackageReleaseNotes>Error Message enhanced</PackageReleaseNotes>
+    <PackageReleaseNotes>Blasorizse ValidationHandler Bracking changes implemented (ValidateAsync), packages updated</PackageReleaseNotes>
 
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazorise.Components" Version="0.9.3.6" />
-    <PackageReference Include="FluentValidation" Version="10.1.0" />
+    <PackageReference Include="Blazorise.Components" Version="0.9.4.3" />
+    <PackageReference Include="FluentValidation" Version="10.3.3" />
   </ItemGroup>
 
 </Project>

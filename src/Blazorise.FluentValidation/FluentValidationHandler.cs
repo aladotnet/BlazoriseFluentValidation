@@ -3,6 +3,8 @@ using FluentValidation.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Blazorise.FluentValidation
 {
@@ -54,6 +56,12 @@ namespace Blazorise.FluentValidation
                 throw new InvalidOperationException(msg, ex);
             }
 
+        }
+
+        public Task ValidateAsync(IValidation validation, object newValidationValue, CancellationToken cancellationToken = default)
+        {
+            Validate(validation, newValidationValue);
+            return Task.CompletedTask;
         }
 
         private IValidator TryGetValidatorForObjectType(Type modelType)
