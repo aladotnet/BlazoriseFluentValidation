@@ -1,3 +1,5 @@
+# BlazoriseFluentValidation 0.9.4
+the Blazorise Team added an asyc method to the IValidationHandler interface, witch is a breacking change for BlasorizeFluentValidation, this is fixed in this version.
 # BlazoriseFluentValidation 0.9.3
 Blazorise has a couple of breacking changes since 0.9.3 and  [Validation](https://blazorise.com/news/release-notes/093/#validation) is one of the Areas that has been refactored. because of that a new implementation of the FluentValidation support was required.
 
