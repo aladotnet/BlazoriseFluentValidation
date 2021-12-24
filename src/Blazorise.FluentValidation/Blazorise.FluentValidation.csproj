@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Version>0.9.4.3</Version>
-    <PackageVersion>0.9.4.3</PackageVersion>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>0.9.5.3</Version>
+    <PackageVersion>0.9.5.3</PackageVersion>
     <Description>BlazoriseFluentValidation is an implementation of the Balsorise IValidationHandler to support FluentValidation</Description>
     <Authors>Ahmed Layachi</Authors>
     <Company></Company>
@@ -12,7 +12,7 @@
     <RepositoryType>git</RepositoryType>
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>10.0</LangVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>Blazorise.FluentValidation</PackageId>
@@ -21,8 +21,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazorise.Components" Version="0.9.4.3" />
-    <PackageReference Include="FluentValidation" Version="10.3.3" />
+    <PackageReference Include="Blazorise.Components" Version="0.9.5.3" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
   </ItemGroup>
 
 </Project>

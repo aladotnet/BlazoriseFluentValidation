@@ -48,9 +48,9 @@
 @code {
     PersonViewModel Person = new PersonViewModel();
     Validations validations;
-    protected void Save()
+    protected async Task Save()
     {
-        if (!validations.ValidateAll())
+        if (! await validations.ValidateAll())
             return;
         //cll a service ....
     }
