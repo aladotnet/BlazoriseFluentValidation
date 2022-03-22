@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>0.9.5.4</Version>
-    <PackageVersion>0.9.5.4</PackageVersion>
+    <Version>0.9.5.3</Version>
+    <PackageVersion>0.9.5.3</PackageVersion>
     <Description>BlazoriseFluentValidation is an implementation of the Balsorise IValidationHandler to support FluentValidation</Description>
     <Authors>Ahmed Layachi</Authors>
     <Company></Company>

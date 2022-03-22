@@ -1,6 +1,4 @@
-﻿@inject PersonViewModelValidator validator
-<h3>PersonEdit</h3>
-
+﻿<h3>PersonEdit</h3>
 <Card>
     <CardHeader>
         <CardTitle>Make Editor</CardTitle>
@@ -52,14 +50,8 @@
     Validations validations;
     protected async Task Save()
     {
-        var result =  await validator.ValidateAsync(Person,System.Threading.CancellationToken.None);
-
-        Console.WriteLine("Validated: " + result.IsValid);
-
         if (! await validations.ValidateAll())
             return;
         //cll a service ....
-
-
     }
 }
