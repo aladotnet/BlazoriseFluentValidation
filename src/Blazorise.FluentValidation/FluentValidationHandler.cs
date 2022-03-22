@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
+using FluentValidation.Results;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -21,47 +22,74 @@ namespace Blazorise.FluentValidation
         {
             try
             {
-                var selector = new MemberNameValidatorSelector(new[] { validation.FieldIdentifier.FieldName });
+                var validator = CreateValidator(validation);
 
-                var validatorEventArgs = new ValidatorEventArgs(newValidationValue);
-
-                var model = validation.FieldIdentifier.Model;
-
-                var context = new ValidationContext<object>(model, new PropertyChain(), selector);
-
-                var validator = TryGetValidatorForObjectType(model.GetType());
                 validation.NotifyValidationStarted();
+                var context = CreateContext(validation);
                 var result = validator.Validate(context);
 
-                if (result.IsValid)
-                    validation.NotifyValidationStatusChanged(ValidationStatus.Success);
-                else
-                {
-                    var messages = result.Errors.Select(e => e.ErrorMessage);
-                    validation.NotifyValidationStatusChanged(ValidationStatus.Error, messages);
-                }
+                NotifyValidationChanged(result,validation);
             }
             catch (Exception ex)
             {
-
-                var msg = $"An unhandled exception occurred when validating field name: '{validation.FieldIdentifier.FieldName}'";
-
-                if (validation.EditContext.Model != validation.FieldIdentifier.Model)
-                {
-                    msg += $" of a child object of type: {validation.FieldIdentifier.Model.GetType()}";
-                }
-
-                msg += $" of <EditForm> model type: '{validation.EditContext.Model.GetType()}'";
-
-                throw new InvalidOperationException(msg, ex);
+                HandleException(ex, validation);
             }
-
         }
 
-        public Task ValidateAsync(IValidation validation, object newValidationValue, CancellationToken cancellationToken = default)
+        public async Task ValidateAsync(IValidation validation, object newValidationValue, CancellationToken cancellationToken = default)
         {
-            Validate(validation, newValidationValue);
-            return Task.CompletedTask;
+            try
+            {
+                var validator = CreateValidator(validation);
+
+                validation.NotifyValidationStarted();
+                var context = CreateContext(validation);
+                var result = await validator.ValidateAsync(context);
+
+                NotifyValidationChanged(result, validation);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex,validation);
+            }
+        }
+
+        private void HandleException(Exception exception,IValidation validation)
+        {
+            var msg = $"An unhandled exception occurred when validating field name: '{validation.FieldIdentifier.FieldName}'";
+
+            if (validation.EditContext.Model != validation.FieldIdentifier.Model)
+            {
+                msg += $" of a child object of type: {validation.FieldIdentifier.Model.GetType()}";
+            }
+
+            msg += $" of <EditForm> model type: '{validation.EditContext.Model.GetType()}'";
+
+            throw new InvalidOperationException(msg, exception);
+        }
+
+        private IValidator CreateValidator(IValidation validation)
+        {
+            var model = validation.FieldIdentifier.Model;
+            return TryGetValidatorForObjectType(model.GetType());
+        }
+
+        private ValidationContext<object> CreateContext(IValidation validation)
+        {
+            var selector = new MemberNameValidatorSelector(new[] { validation.FieldIdentifier.FieldName });
+
+            return new ValidationContext<object>(validation.FieldIdentifier.Model, new PropertyChain(), selector);
+        }
+
+        private void NotifyValidationChanged(ValidationResult result, IValidation validation)
+        {
+            if (result.IsValid)
+                validation.NotifyValidationStatusChanged(ValidationStatus.Success);
+            else
+            {
+                var messages = result.Errors.Select(e => e.ErrorMessage);
+                validation.NotifyValidationStatusChanged(ValidationStatus.Error, messages);
+            }
         }
 
         private IValidator TryGetValidatorForObjectType(Type modelType)
