@@ -21,8 +21,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazorise.Components" Version="0.9.5.3" />
-    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="Blazorise.Components" Version="1.0.4" />
+    <PackageReference Include="FluentValidation" Version="11.0.1" />
   </ItemGroup>
 
 </Project>
