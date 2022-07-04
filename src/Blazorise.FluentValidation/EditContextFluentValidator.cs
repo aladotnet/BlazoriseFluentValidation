@@ -28,9 +28,9 @@ namespace Blazorise.FluentValidation
 
             var fluentValidator = TryGetValidatorForObjectType(fieldIdentifier.Model.GetType());
 
-            var formatedResults = TryValidateField(fluentValidator, editContext, fieldIdentifier);
+            var formattedResults = TryValidateField(fluentValidator, editContext, fieldIdentifier);
 
-            var errors = formatedResults.Select(x => x.ErrorMessage).ToArray();
+            var errors = formattedResults.Select(x => x.ErrorMessage).ToArray();
 
             messages.Add(fieldIdentifier, errors);
 
@@ -62,11 +62,8 @@ namespace Blazorise.FluentValidation
             // This method is required due to breaking changes in FluentValidation 9!
             // https://docs.fluentvalidation.net/en/latest/upgrading-to-9.html#removal-of-non-generic-validate-overload
 
-            if (validatorSelector == null)
-            {
-                // No selector specified - use the default.
-                validatorSelector = ValidatorOptions.Global.ValidatorSelectors.DefaultValidatorSelectorFactory();
-            }
+            // No selector specified - use the default.
+            validatorSelector ??= ValidatorOptions.Global.ValidatorSelectors.DefaultValidatorSelectorFactory();
 
             // Don't need to use reflection to construct the context. 
             // If you create it as a ValidationContext<object> instead of a ValidationContext<T> then FluentValidation will perform the conversion internally, assuming the types are compatible. 

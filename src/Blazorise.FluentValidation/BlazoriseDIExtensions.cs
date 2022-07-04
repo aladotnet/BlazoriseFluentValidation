@@ -1,6 +1,7 @@
 ﻿using Blazorise.FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Blazorise
 {
@@ -14,7 +15,7 @@ namespace Blazorise
         /// <returns></returns>
         public static IServiceCollection AddFluentValidationHandler(this IServiceCollection services)
         {
-            services.AddScoped<FluentValidationHandler>();
+            services.TryAddScoped(HandlerTypes.FluentValidation);
             return services;
         }
 
