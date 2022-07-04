@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Blazorise.Components" Version="1.0.4" />
-    <PackageReference Include="FluentValidation" Version="11.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
   </ItemGroup>
 
 </Project>
