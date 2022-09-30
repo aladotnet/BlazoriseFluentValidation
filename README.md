@@ -1,3 +1,5 @@
+this repository will not be maintaned, since it has been integrated in the Blazorise repo (https://blazorise.com/news/release-notes/110), the Nuget Packages are available as before and they are now also owned by Blazorise. (https://github.com/Megabit/Blazorise/tree/master/Source/Extensions/Blazorise.FluentValidation)
+
 # BlazoriseFluentValidation 0.9.4
 the Blazorise Team added an asyc method to the IValidationHandler interface, witch is a breacking change for BlasorizeFluentValidation, this is fixed in this version.
 # BlazoriseFluentValidation 0.9.3
