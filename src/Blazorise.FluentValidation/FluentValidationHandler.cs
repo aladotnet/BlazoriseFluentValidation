@@ -44,7 +44,7 @@ namespace Blazorise.FluentValidation
 
                 validation.NotifyValidationStarted();
                 var context = CreateContext(validation);
-                var result = await validator.ValidateAsync(context);
+                var result = await validator.ValidateAsync(context, cancellationToken);
 
                 NotifyValidationChanged(result, validation);
             }
@@ -54,7 +54,7 @@ namespace Blazorise.FluentValidation
             }
         }
 
-        private void HandleException(Exception exception,IValidation validation)
+        private static void HandleException(Exception exception, IValidation validation)
         {
             var msg = $"An unhandled exception occurred when validating field name: '{validation.FieldIdentifier.FieldName}'";
 
@@ -74,14 +74,14 @@ namespace Blazorise.FluentValidation
             return TryGetValidatorForObjectType(model.GetType());
         }
 
-        private ValidationContext<object> CreateContext(IValidation validation)
+        private static ValidationContext<object> CreateContext(IValidation validation)
         {
             var selector = new MemberNameValidatorSelector(new[] { validation.FieldIdentifier.FieldName });
 
             return new ValidationContext<object>(validation.FieldIdentifier.Model, new PropertyChain(), selector);
         }
 
-        private void NotifyValidationChanged(ValidationResult result, IValidation validation)
+        private static void NotifyValidationChanged(ValidationResult result, IValidation validation)
         {
             if (result.IsValid)
                 validation.NotifyValidationStatusChanged(ValidationStatus.Success);
